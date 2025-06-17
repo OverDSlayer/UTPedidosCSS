@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Oswald:wght@700&display=swap');
 
-// Estilo general
+// Estilo base
 body {
   background-color: #ffffff;
   font-family: 'Outfit', sans-serif;
@@ -8,14 +8,10 @@ body {
   padding-bottom: 80px; // Solo una vez
 }
 
-// Separado de navbar.scss, no se repite aquí
-
-// Iconos dentro del encabezado
-.bg-header {
-  i {
-    font-size: 2.5rem;
-    color: #8f542c;
-  }
+// Estilo para íconos en el encabezado
+.bg-header i {
+  font-size: 2.5rem;
+  color: #8f542c;
 }
 
 // Barra de búsqueda
@@ -26,7 +22,7 @@ body {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-// Botones con imágenes como filtros
+// Botones con imágenes (filtros)
 .btn-filtro {
   background-color: rgb(255, 245, 245);
   border: none;
@@ -51,14 +47,14 @@ body {
   }
 }
 
-// Botón blanco sin borde
+// Botón blanco simple
 .btn-white {
   background-color: rgb(255, 245, 245);
   border: none;
   max-width: 200px;
 }
 
-// Imagen de producto
+// Imagen de productos en tarjetas
 .img-product {
   width: 100%;
   height: 140px;
