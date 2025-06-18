@@ -7,7 +7,8 @@
 
 <body>
     <main>
-        <div th:if="${message}" id="mensaje-alerta" class="alert alert-success alert-dismissible fade show" role="alert">
+        <div th:if="${message}" id="mensaje-alerta" class="alert alert-success alert-dismissible fade show"
+            role="alert">
             <span th:text="${message}"></span>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -38,6 +39,109 @@
                 </a>
             </div>
         </section>
+        <div id="carruselCupones" class="carousel slide my-5" data-bs-ride="carousel" data-bs-interval="4000">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="row gx-4">
+                        <div class="col-md-3">
+                            <div class="card h-100 text-center">
+                                <img src="/imagenes/promo1.png" class="card-img-top" alt="Promo 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cupón 2x1</h5>
+                                    <p class="card-text">Llévate dos bebidas por el precio de una.</p>
+                                    <button class="btn btn-primary btn-sm">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100 text-center">
+                                <img src="/imagenes/promo2.png" class="card-img-top" alt="Promo 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">10% OFF</h5>
+                                    <p class="card-text">En todo el menú del día.</p>
+                                    <button class="btn btn-primary btn-sm">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100 text-center">
+                                <img src="/imagenes/promo3.png" class="card-img-top" alt="Promo 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Postres Gratis</h5>
+                                    <p class="card-text">Por cada compra mayor a S/.20</p>
+                                    <button class="btn btn-primary btn-sm">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100 text-center">
+                                <img src="/imagenes/promo4.png" class="card-img-top" alt="Promo 4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Descuento Ejecutivo</h5>
+                                    <p class="card-text">15% menos en combos ejecutivos</p>
+                                    <button class="btn btn-primary btn-sm">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 (más promos) -->
+                <div class="carousel-item">
+                    <div class="row gx-4">
+                        <div class="col-md-3">
+                            <div class="card h-100 text-center">
+                                <img src="/imagenes/promo5.png" class="card-img-top" alt="Promo 5">
+                                <div class="card-body">
+                                    <h5 class="card-title">Frapu gratis</h5>
+                                    <p class="card-text">Al comprar 2 sánguches</p>
+                                    <button class="btn btn-primary btn-sm">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100 text-center">
+                                <img src="/imagenes/promo5.png" class="card-img-top" alt="Promo 5">
+                                <div class="card-body">
+                                    <h5 class="card-title">Frapu gratis</h5>
+                                    <p class="card-text">Al comprar 2 sánguches</p>
+                                    <button class="btn btn-primary btn-sm">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100 text-center">
+                                <img src="/imagenes/promo5.png" class="card-img-top" alt="Promo 5">
+                                <div class="card-body">
+                                    <h5 class="card-title">Frapu gratis</h5>
+                                    <p class="card-text">Al comprar 2 sánguches</p>
+                                    <button class="btn btn-primary btn-sm">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card h-100 text-center">
+                                <img src="/imagenes/promo5.png" class="card-img-top" alt="Promo 5">
+                                <div class="card-body">
+                                    <h5 class="card-title">Frapu gratis</h5>
+                                    <p class="card-text">Al comprar 2 sánguches</p>
+                                    <button class="btn btn-primary btn-sm">Aplicar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carruselCupones" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carruselCupones" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
 
         <!-- Cards de productos -->
         <div class="container mt-4">

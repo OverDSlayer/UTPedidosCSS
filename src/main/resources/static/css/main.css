@@ -164,46 +164,12 @@ body {
   }
 }
 
-#carouselPromos {
-  max-width: 1000px;
-  margin: auto;
-}
-#carouselPromos .carousel-inner img {
-  height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s ease;
-}
-@media (max-width: 576px) {
-  #carouselPromos .carousel-inner img {
-    height: 200px;
-  }
-}
-#carouselPromos .carousel-item:hover img {
-  transform: scale(1.02);
-}
-
-.navbar-toggler {
-  border: none;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  padding: 6px;
-}
-.navbar-toggler .navbar-toggler-icon {
+.navbar-toggler-icon {
   width: 25px;
   height: 3px;
   background-color: #c26b1d;
   border-radius: 3px;
   transition: all 0.3s ease;
-}
-.navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
 }
 
 .modal {
@@ -449,20 +415,4 @@ body {
 }
 .card .card-text.text-warning {
   font-size: 0.85rem;
-}
-
-#carouselPromos {
-  max-width: 1000px;
-  margin: auto;
-}
-#carouselPromos .carousel-inner img {
-  height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s ease;
-}
-#carouselPromos .carousel-item:hover img {
-  transform: scale(1.02);
 }/*# sourceMappingURL=main.css.map */

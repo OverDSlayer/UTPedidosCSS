@@ -167,20 +167,10 @@ body {
     }
   }
 }
-
-
-
-
-
 .navbar-toggler-icon {
   width: 25px;
   height: 3px;
   background-color: #c26b1d; // o el color de tu preferencia
   border-radius: 3px;
   transition: all 0.3s ease;
-}
-
-&:focus {
-  outline: none;
-  box-shadow: none;
 }

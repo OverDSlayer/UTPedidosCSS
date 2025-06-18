@@ -1,0 +1,65 @@
+#carruselCupones {
+    .carousel-item {
+        padding: 1rem 0;
+
+        .card {
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-4px);
+            }
+
+            .card-img-top {
+                width: 100%; // Que ocupe todo el ancho de la card
+                height: 160px; // Altura fija
+                object-fit: cover; // Recorta de forma proporcionada
+                object-position: center; // Centra la imagen dentro del recorte
+                border-top-left-radius: 1rem;
+                border-top-right-radius: 1rem;
+                display: block;
+            }
+
+            .card-body {
+                padding: 1rem;
+
+                h5 {
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+
+                p {
+                    font-size: 0.85rem;
+                    margin-bottom: 0.8rem;
+                }
+
+                .btn {
+                    font-size: 0.8rem;
+                    padding: 5px 16px;
+                }
+            }
+        }
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        padding: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .col-md-3 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .col-md-3 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+}
