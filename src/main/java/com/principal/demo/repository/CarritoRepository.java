@@ -16,8 +16,13 @@ import jakarta.transaction.Transactional;
 public interface CarritoRepository extends JpaRepository<Carrito, Integer> {
     @Modifying
     @Transactional
-    @Query(value ="UPDATE carrito SET cantidad = :cantidad WHERE id_producto = :id",nativeQuery = true)
-    Carrito updateCantidadCarrito(int id,int cantidad);
+    @Query(value ="UPDATE carrito SET cantidad = :cantidad WHERE id_producto = :idProducto AND id_usuario = :idUsuario",nativeQuery = true)
+    boolean updateCantidadCarrito(int idUsuario,int idProducto,int cantidad);
+
+    @Modifying
+    @Transactional
+    @Query(value ="DELETE carrito WHERE id_producto = :idProducto AND id_usuario = :idUsuario",nativeQuery = true)
+    boolean deleteProductoCarrito(int idUsuario,int idProducto);
 
     List<Carrito> findByUsuarioId(Integer idUsuario);
 

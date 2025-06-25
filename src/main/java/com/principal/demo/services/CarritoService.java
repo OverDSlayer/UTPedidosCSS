@@ -10,5 +10,6 @@ public interface CarritoService {
     List<Producto> findAllProductosById(int id);
     List<Carrito> obtenerCarritoPorUsuario(int id);
     void saveCarrito(int id,int idProducto,int cantidad,double total);
-    Carrito updateCantidadCarrito(int id,int cantidad);
+    boolean actualizarProductoAgregado(int idUsuario, int idProducto, int cantidad);
+    boolean eliminarProductoAgregado(int idUsuario,int idProducto);
 }

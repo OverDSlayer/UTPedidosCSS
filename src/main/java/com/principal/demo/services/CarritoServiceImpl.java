@@ -42,8 +42,18 @@ public class CarritoServiceImpl implements CarritoService {
     }
 
     @Override
-    public Carrito updateCantidadCarrito(int id, int cantidad) {
-        return carritoRepository.updateCantidadCarrito(id, cantidad);
+    public boolean actualizarProductoAgregado(int idUsuario, int idProducto, int cantidad){
+        if(carritoRepository.updateCantidadCarrito(idUsuario,idProducto,cantidad)){
+            return true;
+        }
+        return false;
     }
     
+    @Override
+    public boolean eliminarProductoAgregado(int idUsuario,int idProducto){
+        if(carritoRepository.deleteProductoCarrito(idUsuario,idProducto)){
+            return true;
+        }
+        return false;
+    }
 }

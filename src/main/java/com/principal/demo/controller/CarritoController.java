@@ -4,8 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.principal.demo.repository.CarritoRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class CarritoController {
@@ -18,4 +22,10 @@ public class CarritoController {
         model.addAttribute("carrito", carritoRepository.findByUsuarioId(idUsuario));
         return "carrito";
     }
+    @PostMapping("carrito/eliminar")
+    public String eliminarDelCarrito(@RequestParam("id") Long idProducto,@RequestParam("idUsuario") Integer idUsuario){
+
+        return "";
+    }
+    
 }

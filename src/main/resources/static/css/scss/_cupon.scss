@@ -2,41 +2,47 @@
     .carousel-item {
         padding: 1rem 0;
 
+        .row {
+            align-items: stretch; // <- clave para que todas las col-md-3 tengan igual altura
+        }
+
         .card {
-            border-radius: 1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
+            height: 100% !important;
+            display: flex !important;
+            flex-direction: column !important;
 
             &:hover {
                 transform: translateY(-4px);
             }
 
             .card-img-top {
-                width: 100%; // Que ocupe todo el ancho de la card
-                height: 160px; // Altura fija
-                object-fit: cover; // Recorta de forma proporcionada
-                object-position: center; // Centra la imagen dentro del recorte
-                border-top-left-radius: 1rem;
-                border-top-right-radius: 1rem;
-                display: block;
+                height: 160px !important;
+                object-fit: cover !important;
+                width: 100% !important;
             }
 
             .card-body {
-                padding: 1rem;
+                flex: 1 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
 
-                h5 {
+                .card-title {
                     font-size: 1rem;
                     font-weight: 600;
+                    margin-bottom: 0.5rem;
                 }
 
-                p {
+                .card-text {
                     font-size: 0.85rem;
                     margin-bottom: 0.8rem;
+                    flex-grow: 1;
                 }
 
                 .btn {
                     font-size: 0.8rem;
                     padding: 5px 16px;
+                    align-self: flex-start;
                 }
             }
         }
