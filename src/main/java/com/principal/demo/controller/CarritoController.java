@@ -1,31 +1,41 @@
 package com.principal.demo.controller;
+
+import com.principal.demo.services.CarritoServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.principal.demo.repository.CarritoRepository;
 
 import jakarta.servlet.http.HttpSession;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
+@RequestMapping("carrito")
 public class CarritoController {
-    
-     @Autowired
-    private CarritoRepository carritoRepository;
 
-    @GetMapping("/carrito/{idUsuario}")
+    @Autowired
+    private CarritoServiceImpl carritoServiceImpl;
+
+    @GetMapping("/{idUsuario}")
     public String verCarrito(@PathVariable Integer idUsuario, Model model) {
-        model.addAttribute("carrito", carritoRepository.findByUsuarioId(idUsuario));
+        model.addAttribute("carrito", carritoServiceImpl.obtenerCarritosPorUsuario(idUsuario));
         return "carrito";
     }
-    @PostMapping("carrito/eliminar")
-    public String eliminarDelCarrito(@RequestParam("id") Long idProducto,@RequestParam("idUsuario") Integer idUsuario){
 
-        return "";
+    @PostMapping("/eliminar/{idUsuario}/{idProducto}")
+    public String eliminarDelCarrito(@PathVariable int idProducto,
+                                     @PathVariable int idUsuario,
+                                     RedirectAttributes redirectAttributes) {
+        try {
+            carritoServiceImpl.eliminarProductoAgregado(idUsuario,idProducto);
+            redirectAttributes.addFlashAttribute("success", "Producto eliminado correctamente");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", "Error al eliminar el producto: " + e.getMessage());
+        }
+
+        return "redirect:/carrito/2";
     }
-    
+
 }

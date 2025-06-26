@@ -25,23 +25,26 @@
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
-                                <form th:action="@{carrito/eliminar}">
-                                    <tbody>
-                                        <tr th:each="item : ${carrito}">
-                                            <td hidden name="idUsuario">1</td>
-                                            <td hidden name="id" th:text="${item.producto.id}"></td>
-                                            <td><img th:src="@{${item.producto.imagenUrl}}" style="width: 60px;" alt="">
-                                            </td>
-                                            <td th:text="${item.producto.nombre}"></td>
-                                            <td th:text="${item.cantidad}"></td>
-                                            <td th:text="${item.producto.precio}"></td>
-                                            <td class="subtotal" th:text="${item.total}"></td>
-                                            <td>
+
+                                <tbody>
+                                    <tr th:each="item : ${carrito}">
+                                        <td><img th:src="@{${item.producto.imagenUrl}}" style="width: 60px;" alt="">
+                                        </td>
+                                        <td th:text="${item.producto.nombre}"></td>
+                                        <td th:text="${item.cantidad}"></td>
+                                        <td th:text="${item.producto.precio}"></td>
+                                        <td class="subtotal" th:text="${item.total}"></td>
+                                        <td>
+                                            <form th:action="@{/carrito/eliminar/{usuarioId}/{productoId}(
+                                                                                            usuarioId=${item.usuario.id},
+                                                                                            productoId=${item.producto.id})}"
+                                                  method="POST">
                                                 <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </form>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
                                 <tfoot>
                                     <tr>
                                         <td colspan="5"><strong>Total:</strong></td>

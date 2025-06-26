@@ -1,7 +1,10 @@
 package com.principal.demo.repository;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.principal.demo.model.Producto;
+import com.principal.demo.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,13 +19,17 @@ import jakarta.transaction.Transactional;
 public interface CarritoRepository extends JpaRepository<Carrito, Integer> {
     @Modifying
     @Transactional
-    @Query(value ="UPDATE carrito SET cantidad = :cantidad WHERE id_producto = :idProducto AND id_usuario = :idUsuario",nativeQuery = true)
-    boolean updateCantidadCarrito(int idUsuario,int idProducto,int cantidad);
+    @Query(value = "UPDATE carrito SET cantidad = :cantidad, total = :subTotal WHERE id_producto = :idProducto AND id_usuario = :idUsuario", nativeQuery = true)
+    int updateCantidadCarrito(@Param("idUsuario") int idUsuario,
+                              @Param("idProducto") int idProducto,
+                              @Param("cantidad") int cantidad,
+                              @Param("subTotal") double subTotal);
 
     @Modifying
     @Transactional
-    @Query(value ="DELETE carrito WHERE id_producto = :idProducto AND id_usuario = :idUsuario",nativeQuery = true)
-    boolean deleteProductoCarrito(int idUsuario,int idProducto);
+    @Query("DELETE FROM Carrito c WHERE c.usuario.id = :usuarioId AND c.producto.id = :productoId")
+    int deleteByUsuarioIdAndProductoId(@Param("usuarioId") int usuarioId,
+                                       @Param("productoId") int productoId);
 
     List<Carrito> findByUsuarioId(Integer idUsuario);
 

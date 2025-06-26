@@ -1,6 +1,7 @@
 package com.principal.demo.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,27 +34,24 @@ public class CarritoServiceImpl implements CarritoService {
 
 
     @Override
-    public List<Carrito> obtenerCarritoPorUsuario(int id) {
+    public List<Carrito> obtenerCarritosPorUsuario(int id) {
         return carritoRepository.findByUsuarioId(id);
     }
+
+
     @Override
     public void saveCarrito(int id,int idProducto,int cantidad,double total) {
         carritoRepository.saveCarritoByIdUsuario(id, idProducto,cantidad,total);
     }
 
     @Override
-    public boolean actualizarProductoAgregado(int idUsuario, int idProducto, int cantidad){
-        if(carritoRepository.updateCantidadCarrito(idUsuario,idProducto,cantidad)){
-            return true;
-        }
-        return false;
+    public int actualizarProductoAgregado(int idUsuario, int idProducto, int cantidad, double subTotal){
+        return carritoRepository.updateCantidadCarrito(idUsuario,idProducto,cantidad,subTotal);
     }
     
     @Override
-    public boolean eliminarProductoAgregado(int idUsuario,int idProducto){
-        if(carritoRepository.deleteProductoCarrito(idUsuario,idProducto)){
-            return true;
-        }
-        return false;
+    public int eliminarProductoAgregado(int idUsuario,int idProducto){
+        return carritoRepository.deleteByUsuarioIdAndProductoId(idUsuario,idProducto);
     }
+
 }
